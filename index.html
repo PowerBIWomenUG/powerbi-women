@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power BI Women User Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#2D5F4C;--secondary:#7A9D8E;--accent:#A8C5B8;--dark:#1A2F28;--text-dark:#2C3E35;--text-light:#6B7F76;--bg-cream:#F9FAF8;--bg-white:#FFF;--border:#E5EBE8}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg-cream);color:var(--text-dark);line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);z-index:1000;border-bottom:1px solid var(--border)}
+.nav-container{max-width:1400px;margin:0 auto;padding:1.25rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.1rem;font-weight:700;color:var(--primary);letter-spacing:-0.02em}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--text-dark);font-weight:500;font-size:0.95rem;transition:color 0.2s}
+.nav-links a:hover{color:var(--primary)}
+.nav-cta{background:var(--primary);color:white!important;padding:0.6rem 1.4rem;border-radius:6px;font-weight:600;transition:all 0.2s}
+.nav-cta:hover{background:var(--dark);transform:translateY(-1px)}
+.hero{margin-top:80px;padding:8rem 2rem 6rem;background:linear-gradient(180deg,var(--bg-white) 0%,var(--bg-cream) 100%)}
+.hero-container{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.hero-content{max-width:600px}
+.hero-image{max-width:450px;width:100%}
+.hero-image img{width:100%;height:auto;border-radius:12px}
+.hero-tag{display:inline-block;padding:0.5rem 1rem;background:var(--accent);color:var(--primary);font-size:0.85rem;font-weight:600;border-radius:20px;margin-bottom:1.5rem;letter-spacing:0.02em}
+.hero h1{font-size:4.5rem;font-weight:800;line-height:1.1;color:var(--dark);margin-bottom:1.5rem;letter-spacing:-0.03em}
+.hero-description{font-size:1.25rem;color:var(--text-light);max-width:550px;margin-bottom:3rem;line-height:1.7}
+.cta-group{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:1rem;transition:all 0.2s;display:inline-block;border:2px solid transparent;cursor:pointer}
+.btn-primary{background:var(--primary);color:white}
+.btn-primary:hover{background:var(--dark);transform:translateY(-2px);box-shadow:0 8px 20px rgba(45,95,76,0.25)}
+.btn-secondary{background:transparent;color:var(--primary);border-color:var(--primary)}
+.btn-secondary:hover{background:var(--primary);color:white}
+.stats-bar{background:var(--primary);padding:2rem;margin:0}
+.stats-container{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:3rem;text-align:center}
+.stat-item{color:white}
+.stat-number{font-size:3rem;font-weight:800;line-height:1;margin-bottom:0.5rem}
+.stat-label{font-size:0.95rem;opacity:0.9}
+section{padding:6rem 2rem}
+.section-container{max-width:1400px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-tag{font-size:0.85rem;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem}
+.section-title{font-size:3rem;font-weight:800;color:var(--dark);margin-bottom:1rem;letter-spacing:-0.02em}
+.section-description{font-size:1.15rem;color:var(--text-light);max-width:650px;margin:0 auto}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem}
+.card{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:2.5rem;transition:all 0.3s}
+.card:hover{border-color:var(--secondary);box-shadow:0 12px 40px rgba(45,95,76,0.08);transform:translateY(-4px)}
+.card-number{font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:1rem}
+.card h3{font-size:1.5rem;font-weight:700;color:var(--dark);margin-bottom:1rem;letter-spacing:-0.01em}
+.card p{color:var(--text-light);line-height:1.7}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem;margin-top:3rem}
+.team-member{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:2rem;text-align:center;transition:all 0.3s}
+.team-member:hover{border-color:var(--secondary);box-shadow:0 12px 40px rgba(45,95,76,0.08);transform:translateY(-4px)}
+.team-photo{width:120px;height:120px;border-radius:50%;background:var(--accent);margin:0 auto 1.5rem;object-fit:cover;border:4px solid var(--border)}
+.team-member h3{font-size:1.3rem;font-weight:700;color:var(--dark);margin-bottom:0.5rem}
+.team-role{color:var(--primary);font-weight:600;font-size:0.9rem;margin-bottom:1rem}
+.team-bio{color:var(--text-light);font-size:0.95rem;line-height:1.6}
+.content-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:2.5rem}
+.content-card{background:var(--bg-white);border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:all 0.3s;cursor:pointer}
+.content-card:hover{border-color:var(--secondary);box-shadow:0 12px 40px rgba(45,95,76,0.08);transform:translateY(-4px)}
+.content-image{width:100%;height:220px;background:linear-gradient(135deg,var(--accent) 0%,var(--secondary) 100%)}
+.content-body{padding:2rem}
+.content-meta{font-size:0.85rem;color:var(--text-light);margin-bottom:1rem}
+.content-card h3{font-size:1.4rem;font-weight:700;color:var(--dark);margin-bottom:0.8rem;letter-spacing:-0.01em}
+.content-excerpt{color:var(--text-light);line-height:1.7}
+.events-list{display:grid;gap:1.5rem}
+.event-item{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:2.5rem;display:grid;grid-template-columns:140px 1fr auto;gap:2.5rem;align-items:center;transition:all 0.3s}
+.event-item:hover{border-color:var(--secondary);box-shadow:0 8px 30px rgba(45,95,76,0.08)}
+.event-date-box{text-align:center;padding:1.5rem;background:var(--bg-cream);border-radius:10px;border:2px solid var(--border)}
+.event-day{font-size:2.5rem;font-weight:800;color:var(--primary);line-height:1}
+.event-month{font-size:0.9rem;font-weight:600;color:var(--text-light);text-transform:uppercase;margin-top:0.3rem}
+.event-content h3{font-size:1.6rem;font-weight:700;color:var(--dark);margin-bottom:0.8rem}
+.event-meta{display:flex;gap:2rem;margin-bottom:0.8rem;font-size:0.9rem;color:var(--text-light)}
+.event-description{color:var(--text-light);line-height:1.7}
+.form-container{max-width:600px;margin:0 auto;background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:3rem}
+.form-group{margin-bottom:1.5rem}
+.form-group label{display:block;margin-bottom:0.5rem;font-weight:600;color:var(--text-dark);font-size:0.95rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:0.85rem 1rem;border:1px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:1rem;transition:all 0.2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(45,95,76,0.1)}
+.admin-panel{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:3rem}
+.admin-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:2rem;margin-bottom:3rem;border-bottom:2px solid var(--border)}
+.admin-header h2{font-size:2rem;font-weight:800;color:var(--dark)}
+.admin-tabs{display:flex;gap:1rem;margin-bottom:2rem;border-bottom:2px solid var(--border)}
+.admin-tab{padding:1rem 1.5rem;background:none;border:none;font-weight:600;color:var(--text-light);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s}
+.admin-tab.active{color:var(--primary);border-bottom-color:var(--primary)}
+.admin-content-section{display:none}
+.admin-content-section.active{display:block}
+.speakers-grid,.events-admin-grid,.team-admin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+.speaker-card,.event-admin-card,.team-admin-card{background:var(--bg-cream);border:1px solid var(--border);border-radius:12px;padding:2rem;text-align:center;transition:all 0.3s}
+.speaker-card:hover,.event-admin-card:hover,.team-admin-card:hover{border-color:var(--secondary);box-shadow:0 8px 25px rgba(45,95,76,0.08)}
+.speaker-initial{width:80px;height:80px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;color:white;margin:0 auto 1.5rem}
+.speaker-card h4,.event-admin-card h4,.team-admin-card h4{font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:0.5rem}
+.speaker-expertise,.team-admin-role{color:var(--primary);font-weight:600;font-size:0.9rem;margin-bottom:1rem}
+.speaker-bio,.event-admin-details,.team-admin-bio{color:var(--text-light);font-size:0.9rem;margin-bottom:1rem;line-height:1.6}
+.delete-btn{background:#E53E3E;color:white;border:none;padding:0.6rem 1.2rem;border-radius:6px;cursor:pointer;font-weight:600;transition:all 0.2s;margin-top:0.5rem}
+.delete-btn:hover{background:#C53030}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(26,47,40,0.4);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center}
+.modal.active{display:flex}
+.modal-content{background:var(--bg-white);border-radius:12px;padding:3rem;max-width:500px;width:90%;max-height:90vh;overflow-y:auto}
+.modal-content h3{font-size:1.8rem;font-weight:800;color:var(--dark);margin-bottom:2rem}
+.close-modal{background:var(--bg-cream);color:var(--text-dark);border:1px solid var(--border);padding:0.8rem 1.5rem;border-radius:6px;cursor:pointer;margin-top:1rem;font-weight:600;transition:all 0.2s}
+.close-modal:hover{background:var(--border)}
+.hidden{display:none}
+.logout-btn{background:#E53E3E;color:white;padding:0.8rem 1.5rem;border-radius:6px;border:none;font-weight:600;cursor:pointer;transition:all 0.2s}
+.logout-btn:hover{background:#C53030}
+.contact-info{text-align:center;margin-top:2rem;padding:2rem;background:var(--bg-cream);border-radius:12px}
+.contact-email{font-size:1.2rem;color:var(--primary);font-weight:600;text-decoration:none}
+.contact-email:hover{text-decoration:underline}
+@media (max-width:1024px){
+.hero-container{grid-template-columns:1fr;gap:3rem}
+.hero-image{order:-1;max-width:350px;margin:0 auto}
+.hero h1{font-size:3.5rem}
+}
+@media (max-width:768px){
+.hero h1{font-size:2.5rem}
+.section-title{font-size:2.2rem}
+.nav-links{gap:1.5rem;font-size:0.9rem}
+.event-item{grid-template-columns:1fr;text-align:center}
+.event-meta{justify-content:center;flex-wrap:wrap}
+.admin-tabs{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<nav><div class="nav-container"><div class="logo">Power BI Women User Group</div><ul class="nav-links"><li><a href="#home">Home</a></li><li><a href="#events">Events</a></li><li><a href="#about">About</a></li><li><a href="#blog">Blog</a></li><li><a href="#resources">Resources</a></li><li><a href="#join" class="nav-cta">Join Us</a></li></ul></div></nav>
+
+<section class="hero" id="home">
+<div class="hero-container">
+<div class="hero-content">
+<div class="hero-tag">Community • Learning • Growth</div>
+<h1>Power BI Women User Group</h1>
+<p class="hero-description">A professional community where women in data come together to learn, share expertise, and advance their careers in Power BI and business intelligence.</p>
+<div class="cta-group">
+<a href="#join" class="btn btn-primary">Join the Community</a>
+<a href="#events" class="btn btn-secondary">View Events</a>
+</div>
+</div>
+<div class="hero-image">
+<img src="diverse-women-tech.png" alt="Diverse women in tech community">
+</div>
+</div>
+</section>
+
+<div class="stats-bar">
+<div class="stats-container">
+<div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Active Members</div></div>
+<div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">Events Hosted</div></div>
+<div class="stat-item"><div class="stat-number">20+</div><div class="stat-label">Expert Speakers</div></div>
+</div>
+</div>
+
+<section id="events" style="background:var(--bg-white)">
+<div class="section-container">
+<div class="section-header">
+<div class="section-tag">UPCOMING</div>
+<h2 class="section-title">Events</h2>
+<p class="section-description">Join us for workshops, panels, and networking sessions</p>
+</div>
+<div class="events-list" id="eventsList">
+<p style="text-align:center;color:var(--text-light)">Loading events...</p>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="section-container">
+<div class="section-header">
+<div class="section-tag">WHO WE ARE</div>
+<h2 class="section-title">Meet Our Team</h2>
+<p class="section-description">Passionate leaders dedicated to empowering women in data analytics</p>
+</div>
+<div class="team-grid" id="teamGrid">
+<p style="text-align:center;color:var(--text-light)">Loading team members...</p>
+</div>
+
+<div class="contact-info">
+<h3 style="margin-bottom:1rem">Contact Us</h3>
+<a href="/cdn-cgi/l/email-protection#0764686973666473477768706275656e70686a62692964686a" class="contact-email"><span class="__cf_email__" data-cfemail="b6d5d9d8c2d7d5c2f6c6d9c1d3c4d4dfc1d9dbd3d898d5d9db">[email&#160;protected]</span></a>
+</div>
+
+<div class="section-header" style="margin-top:5rem">
+<div class="section-tag">WHY JOIN</div>
+<h2 class="section-title">Community Benefits</h2>
+</div>
+<div class="cards-grid">
+<div class="card"><div class="card-number">01</div><h3>Expert-Led Learning</h3><p>Access workshops, tutorials, and sessions led by industry professionals with real-world Power BI experience.</p></div>
+<div class="card"><div class="card-number">02</div><h3>Professional Networking</h3><p>Connect with like-minded professionals, build relationships, and expand your network in the data community.</p></div>
+<div class="card"><div class="card-number">03</div><h3>Hands-On Practice</h3><p>Participate in interactive workshops and collaborative projects to apply your skills in practical scenarios.</p></div>
+<div class="card"><div class="card-number">04</div><h3>Career Development</h3><p>Access mentorship, career resources, and guidance to advance in data analytics and business intelligence.</p></div>
+<div class="card"><div class="card-number">05</div><h3>Inclusive Environment</h3><p>Thrive in a welcoming space where all questions are valued and every learning journey is supported.</p></div>
+<div class="card"><div class="card-number">06</div><h3>Industry Insights</h3><p>Stay current with the latest trends, tools, and best practices in Power BI and data visualization.</p></div>
+</div>
+</div>
+</section>
+
+<section id="blog" style="background:var(--bg-white)">
+<div class="section-container">
+<div class="section-header">
+<div class="section-tag">KNOWLEDGE BASE</div>
+<h2 class="section-title">Latest Articles</h2>
+<p class="section-description">Insights, tutorials, and best practices from our community</p>
+</div>
+<div class="content-grid">
+<div class="content-card"><div class="content-image"></div><div class="content-body"><div class="content-meta">January 20, 2026</div><h3>Mastering DAX: Advanced Formulas</h3><p class="content-excerpt">Learn how to take your DAX skills to the next level with these advanced techniques and real-world examples.</p></div></div>
+<div class="content-card"><div class="content-image"></div><div class="content-body"><div class="content-meta">January 15, 2026</div><h3>Career Growth in Business Intelligence</h3><p class="content-excerpt">Strategies for advancing your career in the BI field and building your professional network.</p></div></div>
+<div class="content-card"><div class="content-image"></div><div class="content-body"><div class="content-meta">January 10, 2026</div><h3>Designing Impactful Dashboards</h3><p class="content-excerpt">Best practices for creating dashboards that tell a story and drive business decisions.</p></div></div>
+</div>
+</div>
+</section>
+
+<section id="resources">
+<div class="section-container">
+<div class="section-header">
+<div class="section-tag">LEARNING MATERIALS</div>
+<h2 class="section-title">Resources</h2>
+<p class="section-description">Curated materials to accelerate your Power BI journey</p>
+</div>
+<div class="cards-grid">
+<div class="card"><div class="card-number">01</div><h3>Tutorials & Guides</h3><p>Comprehensive step-by-step tutorials for beginners through advanced users.</p></div>
+<div class="card"><div class="card-number">02</div><h3>Video Library</h3><p>Recorded sessions from past meetups, workshops, and expert presentations.</p></div>
+<div class="card"><div class="card-number">03</div><h3>Sample Datasets</h3><p>Practice with real-world datasets shared by community members.</p></div>
+<div class="card"><div class="card-number">04</div><h3>Best Practices</h3><p>Industry-standard approaches for efficient reporting and visualization.</p></div>
+<div class="card"><div class="card-number">05</div><h3>External Resources</h3><p>Curated links to documentation, forums, and recommended learning platforms.</p></div>
+<div class="card"><div class="card-number">06</div><h3>Templates</h3><p>Starter templates for common Power BI scenarios and use cases.</p></div>
+</div>
+</div>
+</section>
+
+<section id="join" style="background:var(--bg-white)">
+<div class="section-container">
+<div class="section-header">
+<div class="section-tag">GET STARTED</div>
+<h2 class="section-title">Join Our Community</h2>
+<p class="section-description">Become part of our professional network</p>
+</div>
+<div class="form-container">
+<form id="signupForm">
+<div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" required></div>
+<div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" required></div>
+<div class="form-group"><label for="company">Company</label><input type="text" id="company"></div>
+<div class="form-group"><label for="experience">Power BI Experience Level</label><select id="experience"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option><option value="expert">Expert</option></select></div>
+<div class="form-group"><label for="interests">Areas of Interest</label><textarea id="interests" rows="4" placeholder="e.g., DAX formulas, dashboard design, career development..."></textarea></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Join Community</button>
+</form>
+</div>
+</div>
+</section>
+
+<section id="admin" style="background:var(--bg-white);display:none">
+<div class="section-container">
+<div class="admin-panel" id="loginPanel" style="max-width:400px;margin:0 auto">
+<h2 style="text-align:center;margin-bottom:2rem">Admin Login</h2>
+<form id="loginForm">
+<div class="form-group"><label for="adminPassword">Password</label><input type="password" id="adminPassword" required></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Login</button>
+</form>
+</div>
+
+<div class="admin-panel hidden" id="adminContent">
+<div class="admin-header">
+<h2>Admin Dashboard</h2>
+<button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+
+<div class="admin-tabs">
+<button class="admin-tab active" onclick="switchTab('events')">Events</button>
+<button class="admin-tab" onclick="switchTab('team')">Team Members</button>
+<button class="admin-tab" onclick="switchTab('speakers')">Speakers</button>
+</div>
+
+<div class="admin-content-section active" id="eventsAdmin">
+<button class="btn btn-primary" onclick="openAddEventModal()" style="margin-bottom:2rem">Add Event</button>
+<div class="events-admin-grid" id="eventsAdminGrid"></div>
+</div>
+
+<div class="admin-content-section" id="teamAdmin">
+<button class="btn btn-primary" onclick="openAddTeamModal()" style="margin-bottom:2rem">Add Team Member</button>
+<div class="team-admin-grid" id="teamAdminGrid"></div>
+</div>
+
+<div class="admin-content-section" id="speakersAdmin">
+<button class="btn btn-primary" onclick="openAddSpeakerModal()" style="margin-bottom:2rem">Add Speaker</button>
+<div class="speakers-grid" id="speakersGrid"></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<div class="modal" id="addEventModal">
+<div class="modal-content">
+<h3>Add New Event</h3>
+<form id="addEventForm">
+<div class="form-group"><label for="eventTitle">Event Title *</label><input type="text" id="eventTitle" required></div>
+<div class="form-group"><label for="eventDate">Date *</label><input type="date" id="eventDate" required></div>
+<div class="form-group"><label for="eventSpeaker">Speaker</label><input type="text" id="eventSpeaker"></div>
+<div class="form-group"><label for="eventLocation">Location</label><input type="text" id="eventLocation" placeholder="e.g., Meetup - Toronto"></div>
+<div class="form-group"><label for="eventDescription">Description *</label><textarea id="eventDescription" rows="4" required></textarea></div>
+<div class="form-group"><label for="eventMeetupLink">Meetup Registration Link *</label><input type="url" id="eventMeetupLink" placeholder="https://meetup.com/..." required></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Add Event</button>
+<button type="button" class="close-modal" onclick="closeAddEventModal()">Cancel</button>
+</form>
+</div>
+</div>
+
+<div class="modal" id="addTeamModal">
+<div class="modal-content">
+<h3>Add Team Member</h3>
+<form id="addTeamForm">
+<div class="form-group"><label for="teamName">Full Name *</label><input type="text" id="teamName" required></div>
+<div class="form-group"><label for="teamRole">Role *</label><input type="text" id="teamRole" placeholder="e.g., Founder, Co-Organizer" required></div>
+<div class="form-group"><label for="teamBio">Bio *</label><textarea id="teamBio" rows="4" required></textarea></div>
+<div class="form-group"><label for="teamPhoto">Photo URL</label><input type="url" id="teamPhoto" placeholder="https://..."></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Add Team Member</button>
+<button type="button" class="close-modal" onclick="closeAddTeamModal()">Cancel</button>
+</form>
+</div>
+</div>
+
+<div class="modal" id="addSpeakerModal">
+<div class="modal-content">
+<h3>Add New Speaker</h3>
+<form id="addSpeakerForm">
+<div class="form-group"><label for="speakerName">Full Name *</label><input type="text" id="speakerName" required></div>
+<div class="form-group"><label for="speakerExpertise">Expertise *</label><input type="text" id="speakerExpertise" placeholder="e.g., DAX Expert, Data Visualization" required></div>
+<div class="form-group"><label for="speakerBio">Bio</label><textarea id="speakerBio" rows="4"></textarea></div>
+<div class="form-group"><label for="speakerEmail">Email</label><input type="email" id="speakerEmail"></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Add Speaker</button>
+<button type="button" class="close-modal" onclick="closeAddSpeakerModal()">Cancel</button>
+</form>
+</div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const ADMIN_PASSWORD='powerbi2026';
+let isLoggedIn=false;
+
+// Tab switching
+function switchTab(tab){
+document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.admin-content-section').forEach(s=>s.classList.remove('active'));
+event.target.classList.add('active');
+document.getElementById(tab+'Admin').classList.add('active');
+}
+
+// Load Events
+function loadEvents(){
+const events=JSON.parse(localStorage.getItem('events')||'[]');
+const list=document.getElementById('eventsList');
+const adminGrid=document.getElementById('eventsAdminGrid');
+if(events.length===0){
+list.innerHTML='<p style="text-align:center;color:var(--text-light)">No upcoming events. Check back soon!</p>';
+if(adminGrid)adminGrid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">No events added yet.</p>';
+return;
+}
+list.innerHTML=events.map((event,i)=>{
+const date=new Date(event.date);
+const day=date.getDate();
+const month=date.toLocaleString('default',{month:'short'});
+return`<div class="event-item">
+<div class="event-date-box"><div class="event-day">${day}</div><div class="event-month">${month}</div></div>
+<div class="event-content">
+<h3>${event.title}</h3>
+<div class="event-meta">
+${event.speaker?`<span>Speaker: ${event.speaker}</span>`:''}
+${event.location?`<span>Location: ${event.location}</span>`:''}
+</div>
+<p class="event-description">${event.description}</p>
+</div>
+<a href="${event.meetupLink}" target="_blank" class="btn btn-primary">Register on Meetup</a>
+</div>`;
+}).join('');
+if(adminGrid){
+adminGrid.innerHTML=events.map((event,i)=>`<div class="event-admin-card">
+<h4>${event.title}</h4>
+<p class="event-admin-details">${new Date(event.date).toLocaleDateString()}<br>${event.speaker||'No speaker'}<br>${event.location||'No location'}</p>
+<button class="delete-btn" onclick="deleteEvent(${i})">Delete</button>
+</div>`).join('');
+}
+}
+
+// Load Team
+function loadTeam(){
+const team=JSON.parse(localStorage.getItem('team')||'[]');
+const grid=document.getElementById('teamGrid');
+const adminGrid=document.getElementById('teamAdminGrid');
+if(team.length===0){
+grid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">Team information coming soon!</p>';
+if(adminGrid)adminGrid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">No team members added yet.</p>';
+return;
+}
+grid.innerHTML=team.map(member=>`<div class="team-member">
+${member.photo?`<img src="${member.photo}" class="team-photo" alt="${member.name}">`:`<div class="team-photo"></div>`}
+<h3>${member.name}</h3>
+<div class="team-role">${member.role}</div>
+<p class="team-bio">${member.bio}</p>
+</div>`).join('');
+if(adminGrid){
+adminGrid.innerHTML=team.map((member,i)=>`<div class="team-admin-card">
+<h4>${member.name}</h4>
+<p class="team-admin-role">${member.role}</p>
+<p class="team-admin-bio">${member.bio}</p>
+<button class="delete-btn" onclick="deleteTeam(${i})">Delete</button>
+</div>`).join('');
+}
+}
+
+// Load Speakers
+function loadSpeakers(){
+const speakers=JSON.parse(localStorage.getItem('speakers')||'[]');
+const grid=document.getElementById('speakersGrid');
+if(speakers.length===0){
+grid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">No speakers added yet.</p>';
+return;
+}
+grid.innerHTML=speakers.map((speaker,i)=>`<div class="speaker-card">
+<div class="speaker-initial">${speaker.name.charAt(0)}</div>
+<h4>${speaker.name}</h4>
+<div class="speaker-expertise">${speaker.expertise}</div>
+${speaker.bio?`<p class="speaker-bio">${speaker.bio}</p>`:''}
+${speaker.email?`<p style="color:var(--text-light);font-size:0.85rem;margin-bottom:1rem">${speaker.email}</p>`:''}
+<button class="delete-btn" onclick="deleteSpeaker(${i})">Remove</button>
+</div>`).join('');
+}
+
+// Event Management
+function openAddEventModal(){document.getElementById('addEventModal').classList.add('active')}
+function closeAddEventModal(){document.getElementById('addEventModal').classList.remove('active');document.getElementById('addEventForm').reset()}
+document.getElementById('addEventForm').addEventListener('submit',(e)=>{
+e.preventDefault();
+const event={
+title:document.getElementById('eventTitle').value,
+date:document.getElementById('eventDate').value,
+speaker:document.getElementById('eventSpeaker').value,
+location:document.getElementById('eventLocation').value,
+description:document.getElementById('eventDescription').value,
+meetupLink:document.getElementById('eventMeetupLink').value
+};
+const events=JSON.parse(localStorage.getItem('events')||'[]');
+events.push(event);
+localStorage.setItem('events',JSON.stringify(events));
+closeAddEventModal();
+loadEvents();
+});
+function deleteEvent(i){
+if(confirm('Delete this event?')){
+const events=JSON.parse(localStorage.getItem('events')||'[]');
+events.splice(i,1);
+localStorage.setItem('events',JSON.stringify(events));
+loadEvents();
+}
+}
+
+// Team Management
+function openAddTeamModal(){document.getElementById('addTeamModal').classList.add('active')}
+function closeAddTeamModal(){document.getElementById('addTeamModal').classList.remove('active');document.getElementById('addTeamForm').reset()}
+document.getElementById('addTeamForm').addEventListener('submit',(e)=>{
+e.preventDefault();
+const member={
+name:document.getElementById('teamName').value,
+role:document.getElementById('teamRole').value,
+bio:document.getElementById('teamBio').value,
+photo:document.getElementById('teamPhoto').value
+};
+const team=JSON.parse(localStorage.getItem('team')||'[]');
+team.push(member);
+localStorage.setItem('team',JSON.stringify(team));
+closeAddTeamModal();
+loadTeam();
+});
+function deleteTeam(i){
+if(confirm('Remove this team member?')){
+const team=JSON.parse(localStorage.getItem('team')||'[]');
+team.splice(i,1);
+localStorage.setItem('team',JSON.stringify(team));
+loadTeam();
+}
+}
+
+// Speaker Management
+function openAddSpeakerModal(){document.getElementById('addSpeakerModal').classList.add('active')}
+function closeAddSpeakerModal(){document.getElementById('addSpeakerModal').classList.remove('active');document.getElementById('addSpeakerForm').reset()}
+document.getElementById('addSpeakerForm').addEventListener('submit',(e)=>{
+e.preventDefault();
+const speaker={
+name:document.getElementById('speakerName').value,
+expertise:document.getElementById('speakerExpertise').value,
+bio:document.getElementById('speakerBio').value,
+email:document.getElementById('speakerEmail').value
+};
+const speakers=JSON.parse(localStorage.getItem('speakers')||'[]');
+speakers.push(speaker);
+localStorage.setItem('speakers',JSON.stringify(speakers));
+closeAddSpeakerModal();
+loadSpeakers();
+});
+function deleteSpeaker(i){
+if(confirm('Remove this speaker?')){
+const speakers=JSON.parse(localStorage.getItem('speakers')||'[]');
+speakers.splice(i,1);
+localStorage.setItem('speakers',JSON.stringify(speakers));
+loadSpeakers();
+}
+}
+
+// Login
+window.addEventListener('hashchange',()=>{if(window.location.hash==='#admin'){document.getElementById('admin').style.display='block'}});
+if(window.location.hash==='#admin'){document.getElementById('admin').style.display='block'}
+document.getElementById('loginForm').addEventListener('submit',(e)=>{
+e.preventDefault();
+if(document.getElementById('adminPassword').value===ADMIN_PASSWORD){
+isLoggedIn=true;
+document.getElementById('loginPanel').style.display='none';
+document.getElementById('adminContent').classList.remove('hidden');
+loadEvents();
+loadTeam();
+loadSpeakers();
+}else{alert('Incorrect password.')}
+});
+function logout(){
+isLoggedIn=false;
+document.getElementById('loginPanel').style.display='block';
+document.getElementById('adminContent').classList.add('hidden');
+document.getElementById('adminPassword').value='';
+}
+
+// Signup
+document.getElementById('signupForm').addEventListener('submit',(e)=>{
+e.preventDefault();
+alert('Welcome! Check your email for next steps.');
+document.getElementById('signupForm').reset();
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+anchor.addEventListener('cl

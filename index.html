@@ -80,8 +80,8 @@ section{padding:6rem 2rem}
 .admin-panel{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:3rem}
 .admin-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:2rem;margin-bottom:3rem;border-bottom:2px solid var(--border)}
 .admin-header h2{font-size:2rem;font-weight:800;color:var(--dark)}
-.admin-tabs{display:flex;gap:1rem;margin-bottom:2rem;border-bottom:2px solid var(--border)}
-.admin-tab{padding:1rem 1.5rem;background:none;border:none;font-weight:600;color:var(--text-light);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s}
+.admin-tabs{display:flex;gap:1rem;margin-bottom:2rem;border-bottom:2px solid var(--border);overflow-x:auto}
+.admin-tab{padding:1rem 1.5rem;background:none;border:none;font-weight:600;color:var(--text-light);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;white-space:nowrap}
 .admin-tab.active{color:var(--primary);border-bottom-color:var(--primary)}
 .admin-content-section{display:none}
 .admin-content-section.active{display:block}
@@ -106,6 +106,13 @@ section{padding:6rem 2rem}
 .contact-info{text-align:center;margin-top:2rem;padding:2rem;background:var(--bg-cream);border-radius:12px}
 .contact-email{font-size:1.2rem;color:var(--primary);font-weight:600;text-decoration:none}
 .contact-email:hover{text-decoration:underline}
+.settings-grid{display:grid;gap:1.5rem;max-width:700px}
+.settings-item{background:var(--bg-cream);border:1px solid var(--border);border-radius:12px;padding:2rem}
+.settings-item h4{font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:1rem}
+.settings-value{color:var(--text-light);font-size:0.95rem;margin-bottom:1rem;word-break:break-all}
+.social-links{display:flex;gap:1rem;margin-top:2rem;justify-content:center;flex-wrap:wrap}
+.social-link{padding:0.8rem 1.5rem;background:var(--primary);color:white;text-decoration:none;border-radius:8px;font-weight:600;transition:all 0.2s}
+.social-link:hover{background:var(--dark);transform:translateY(-2px)}
 @media (max-width:1024px){
 .hero-container{grid-template-columns:1fr;gap:3rem}
 .hero-image{order:-1;max-width:350px;margin:0 auto}
@@ -175,7 +182,8 @@ section{padding:6rem 2rem}
 
 <div class="contact-info">
 <h3 style="margin-bottom:1rem">Contact Us</h3>
-<a href="/cdn-cgi/l/email-protection#0764686973666473477768706275656e70686a62692964686a" class="contact-email"><span class="__cf_email__" data-cfemail="b6d5d9d8c2d7d5c2f6c6d9c1d3c4d4dfc1d9dbd3d898d5d9db">[email&#160;protected]</span></a>
+<a href="" class="contact-email" id="contactEmailLink">Loading...</a>
+<div class="social-links" id="socialLinks"></div>
 </div>
 
 <div class="section-header" style="margin-top:5rem">
@@ -266,6 +274,7 @@ section{padding:6rem 2rem}
 <button class="admin-tab active" onclick="switchTab('events')">Events</button>
 <button class="admin-tab" onclick="switchTab('team')">Team Members</button>
 <button class="admin-tab" onclick="switchTab('speakers')">Speakers</button>
+<button class="admin-tab" onclick="switchTab('settings')">Settings & Links</button>
 </div>
 
 <div class="admin-content-section active" id="eventsAdmin">
@@ -281,6 +290,12 @@ section{padding:6rem 2rem}
 <div class="admin-content-section" id="speakersAdmin">
 <button class="btn btn-primary" onclick="openAddSpeakerModal()" style="margin-bottom:2rem">Add Speaker</button>
 <div class="speakers-grid" id="speakersGrid"></div>
+</div>
+
+<div class="admin-content-section" id="settingsAdmin">
+<h3 style="margin-bottom:2rem">Update Site Links & Contact Info</h3>
+<div class="settings-grid" id="settingsGrid"></div>
+<button class="btn btn-primary" onclick="openEditSettingsModal()" style="margin-top:2rem">Edit Settings</button>
 </div>
 
 </div>
@@ -331,9 +346,38 @@ section{padding:6rem 2rem}
 </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<div class="modal" id="editSettingsModal">
+<div class="modal-content">
+<h3>Edit Settings & Links</h3>
+<form id="editSettingsForm">
+<div class="form-group"><label for="settingsEmail">Contact Email *</label><input type="email" id="settingsEmail" placeholder="contact@powerbiwomen.com" required></div>
+<div class="form-group"><label for="settingsMeetup">Meetup Group URL</label><input type="url" id="settingsMeetup" placeholder="https://meetup.com/your-group"></div>
+<div class="form-group"><label for="settingsLinkedIn">LinkedIn Page URL</label><input type="url" id="settingsLinkedIn" placeholder="https://linkedin.com/company/..."></div>
+<div class="form-group"><label for="settingsTwitter">Twitter/X URL</label><input type="url" id="settingsTwitter" placeholder="https://twitter.com/..."></div>
+<div class="form-group"><label for="settingsInstagram">Instagram URL</label><input type="url" id="settingsInstagram" placeholder="https://instagram.com/..."></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Save Settings</button>
+<button type="button" class="close-modal" onclick="closeEditSettingsModal()">Cancel</button>
+</form>
+</div>
+</div>
+
+<script>
 const ADMIN_PASSWORD='powerbi2026';
 let isLoggedIn=false;
+
+// Default settings
+const defaultSettings={
+email:'contact@powerbiwomen.com',
+meetup:'',
+linkedin:'',
+twitter:'',
+instagram:''
+};
+
+// Initialize settings
+if(!localStorage.getItem('settings')){
+localStorage.setItem('settings',JSON.stringify(defaultSettings));
+}
 
 // Tab switching
 function switchTab(tab){
@@ -341,7 +385,69 @@ document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'))
 document.querySelectorAll('.admin-content-section').forEach(s=>s.classList.remove('active'));
 event.target.classList.add('active');
 document.getElementById(tab+'Admin').classList.add('active');
+if(tab==='settings')loadSettings();
 }
+
+// Load Settings
+function loadSettings(){
+const settings=JSON.parse(localStorage.getItem('settings')||JSON.stringify(defaultSettings));
+const grid=document.getElementById('settingsGrid');
+grid.innerHTML=`
+<div class="settings-item">
+<h4>Contact Email</h4>
+<div class="settings-value">${settings.email}</div>
+</div>
+${settings.meetup?`<div class="settings-item"><h4>Meetup Group</h4><div class="settings-value">${settings.meetup}</div></div>`:''}
+${settings.linkedin?`<div class="settings-item"><h4>LinkedIn</h4><div class="settings-value">${settings.linkedin}</div></div>`:''}
+${settings.twitter?`<div class="settings-item"><h4>Twitter/X</h4><div class="settings-value">${settings.twitter}</div></div>`:''}
+${settings.instagram?`<div class="settings-item"><h4>Instagram</h4><div class="settings-value">${settings.instagram}</div></div>`:''}
+`;
+updateContactDisplay();
+}
+
+function updateContactDisplay(){
+const settings=JSON.parse(localStorage.getItem('settings')||JSON.stringify(defaultSettings));
+const emailLink=document.getElementById('contactEmailLink');
+emailLink.href='mailto:'+settings.email;
+emailLink.textContent=settings.email;
+
+const socialLinksDiv=document.getElementById('socialLinks');
+let socialHTML='';
+if(settings.meetup)socialHTML+=`<a href="${settings.meetup}" target="_blank" class="social-link">Join on Meetup</a>`;
+if(settings.linkedin)socialHTML+=`<a href="${settings.linkedin}" target="_blank" class="social-link">LinkedIn</a>`;
+if(settings.twitter)socialHTML+=`<a href="${settings.twitter}" target="_blank" class="social-link">Twitter</a>`;
+if(settings.instagram)socialHTML+=`<a href="${settings.instagram}" target="_blank" class="social-link">Instagram</a>`;
+socialLinksDiv.innerHTML=socialHTML;
+}
+
+function openEditSettingsModal(){
+const settings=JSON.parse(localStorage.getItem('settings')||JSON.stringify(defaultSettings));
+document.getElementById('settingsEmail').value=settings.email;
+document.getElementById('settingsMeetup').value=settings.meetup||'';
+document.getElementById('settingsLinkedIn').value=settings.linkedin||'';
+document.getElementById('settingsTwitter').value=settings.twitter||'';
+document.getElementById('settingsInstagram').value=settings.instagram||'';
+document.getElementById('editSettingsModal').classList.add('active');
+}
+
+function closeEditSettingsModal(){
+document.getElementById('editSettingsModal').classList.remove('active');
+}
+
+document.getElementById('editSettingsForm').addEventListener('submit',(e)=>{
+e.preventDefault();
+const settings={
+email:document.getElementById('settingsEmail').value,
+meetup:document.getElementById('settingsMeetup').value,
+linkedin:document.getElementById('settingsLinkedIn').value,
+twitter:document.getElementById('settingsTwitter').value,
+instagram:document.getElementById('settingsInstagram').value
+};
+localStorage.setItem('settings',JSON.stringify(settings));
+closeEditSettingsModal();
+loadSettings();
+alert('Settings updated successfully!');
+});
 
 // Load Events
 function loadEvents(){
@@ -515,6 +621,7 @@ document.getElementById('adminContent').classList.remove('hidden');
 loadEvents();
 loadTeam();
 loadSpeakers();
+loadSettings();
 }else{alert('Incorrect password.')}
 });
 function logout(){
@@ -533,4 +640,17 @@ document.getElementById('signupForm').reset();
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-anchor.addEventListener('cl
+anchor.addEventListener('click',function(e){
+e.preventDefault();
+const target=document.querySelector(this.getAttribute('href'));
+if(target){target.scrollIntoView({behavior:'smooth',block:'start'})}
+});
+});
+
+// Load on page load
+loadEvents();
+loadTeam();
+updateContactDisplay();
+</script>
+</body>
+</html>

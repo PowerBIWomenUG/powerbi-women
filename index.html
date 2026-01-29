@@ -58,20 +58,25 @@ section{padding:6rem 2rem}
 .content-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:2.5rem}
 .content-card{background:var(--bg-white);border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:all 0.3s;cursor:pointer}
 .content-card:hover{border-color:var(--secondary);box-shadow:0 12px 40px rgba(45,95,76,0.08);transform:translateY(-4px)}
-.content-image{width:100%;height:220px;background:linear-gradient(135deg,var(--accent) 0%,var(--secondary) 100%)}
+.content-image{width:100%;height:220px;background:linear-gradient(135deg,var(--accent) 0%,var(--secondary) 100%);object-fit:cover}
 .content-body{padding:2rem}
 .content-meta{font-size:0.85rem;color:var(--text-light);margin-bottom:1rem}
 .content-card h3{font-size:1.4rem;font-weight:700;color:var(--dark);margin-bottom:0.8rem;letter-spacing:-0.01em}
 .content-excerpt{color:var(--text-light);line-height:1.7}
 .events-list{display:grid;gap:1.5rem}
-.event-item{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:2.5rem;display:grid;grid-template-columns:140px 1fr auto;gap:2.5rem;align-items:center;transition:all 0.3s}
+.event-item{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:2.5rem;display:grid;grid-template-columns:auto 1fr auto;gap:2.5rem;align-items:center;transition:all 0.3s}
 .event-item:hover{border-color:var(--secondary);box-shadow:0 8px 30px rgba(45,95,76,0.08)}
-.event-date-box{text-align:center;padding:1.5rem;background:var(--bg-cream);border-radius:10px;border:2px solid var(--border)}
-.event-day{font-size:2.5rem;font-weight:800;color:var(--primary);line-height:1}
-.event-month{font-size:0.9rem;font-weight:600;color:var(--text-light);text-transform:uppercase;margin-top:0.3rem}
+.event-image-box{width:200px;height:200px;border-radius:10px;overflow:hidden;background:var(--bg-cream)}
+.event-image-box img{width:100%;height:100%;object-fit:cover}
 .event-content h3{font-size:1.6rem;font-weight:700;color:var(--dark);margin-bottom:0.8rem}
-.event-meta{display:flex;gap:2rem;margin-bottom:0.8rem;font-size:0.9rem;color:var(--text-light)}
+.event-meta{display:flex;gap:2rem;margin-bottom:0.8rem;font-size:0.9rem;color:var(--text-light);flex-wrap:wrap}
 .event-description{color:var(--text-light);line-height:1.7}
+.speaker-showcase{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:3rem}
+.speaker-showcase-item{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;transition:all 0.3s}
+.speaker-showcase-item:hover{border-color:var(--secondary);box-shadow:0 8px 25px rgba(45,95,76,0.08);transform:translateY(-4px)}
+.speaker-showcase-photo{width:100px;height:100px;border-radius:50%;background:var(--accent);margin:0 auto 1rem;object-fit:cover;border:3px solid var(--border)}
+.speaker-showcase-item h4{font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:0.3rem}
+.speaker-showcase-expertise{color:var(--primary);font-weight:600;font-size:0.85rem}
 .form-container{max-width:600px;margin:0 auto;background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:3rem}
 .form-group{margin-bottom:1.5rem}
 .form-group label{display:block;margin-bottom:0.5rem;font-weight:600;color:var(--text-dark);font-size:0.95rem}
@@ -80,25 +85,23 @@ section{padding:6rem 2rem}
 .admin-panel{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:3rem}
 .admin-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:2rem;margin-bottom:3rem;border-bottom:2px solid var(--border)}
 .admin-header h2{font-size:2rem;font-weight:800;color:var(--dark)}
-.admin-tabs{display:flex;gap:1rem;margin-bottom:2rem;border-bottom:2px solid var(--border);overflow-x:auto}
-.admin-tab{padding:1rem 1.5rem;background:none;border:none;font-weight:600;color:var(--text-light);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;white-space:nowrap}
+.admin-tabs{display:flex;gap:0.5rem;margin-bottom:2rem;border-bottom:2px solid var(--border);overflow-x:auto}
+.admin-tab{padding:1rem 1.2rem;background:none;border:none;font-weight:600;color:var(--text-light);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;white-space:nowrap;font-size:0.9rem}
 .admin-tab.active{color:var(--primary);border-bottom-color:var(--primary)}
 .admin-content-section{display:none}
 .admin-content-section.active{display:block}
-.speakers-grid,.events-admin-grid,.team-admin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
-.speaker-card,.event-admin-card,.team-admin-card{background:var(--bg-cream);border:1px solid var(--border);border-radius:12px;padding:2rem;text-align:center;transition:all 0.3s}
-.speaker-card:hover,.event-admin-card:hover,.team-admin-card:hover{border-color:var(--secondary);box-shadow:0 8px 25px rgba(45,95,76,0.08)}
-.speaker-initial{width:80px;height:80px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;color:white;margin:0 auto 1.5rem}
-.speaker-card h4,.event-admin-card h4,.team-admin-card h4{font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:0.5rem}
-.speaker-expertise,.team-admin-role{color:var(--primary);font-weight:600;font-size:0.9rem;margin-bottom:1rem}
-.speaker-bio,.event-admin-details,.team-admin-bio{color:var(--text-light);font-size:0.9rem;margin-bottom:1rem;line-height:1.6}
-.delete-btn{background:#E53E3E;color:white;border:none;padding:0.6rem 1.2rem;border-radius:6px;cursor:pointer;font-weight:600;transition:all 0.2s;margin-top:0.5rem}
+.admin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+.admin-card{background:var(--bg-cream);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:all 0.3s}
+.admin-card:hover{border-color:var(--secondary);box-shadow:0 8px 25px rgba(45,95,76,0.08)}
+.admin-card h4{font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:0.5rem}
+.admin-card-details{color:var(--text-light);font-size:0.9rem;margin:0.5rem 0;line-height:1.6}
+.delete-btn{background:#E53E3E;color:white;border:none;padding:0.6rem 1.2rem;border-radius:6px;cursor:pointer;font-weight:600;transition:all 0.2s;margin-top:0.5rem;width:100%}
 .delete-btn:hover{background:#C53030}
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(26,47,40,0.4);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center}
 .modal.active{display:flex}
 .modal-content{background:var(--bg-white);border-radius:12px;padding:3rem;max-width:500px;width:90%;max-height:90vh;overflow-y:auto}
 .modal-content h3{font-size:1.8rem;font-weight:800;color:var(--dark);margin-bottom:2rem}
-.close-modal{background:var(--bg-cream);color:var(--text-dark);border:1px solid var(--border);padding:0.8rem 1.5rem;border-radius:6px;cursor:pointer;margin-top:1rem;font-weight:600;transition:all 0.2s}
+.close-modal{background:var(--bg-cream);color:var(--text-dark);border:1px solid var(--border);padding:0.8rem 1.5rem;border-radius:6px;cursor:pointer;margin-top:1rem;font-weight:600;transition:all 0.2s;width:100%}
 .close-modal:hover{background:var(--border)}
 .hidden{display:none}
 .logout-btn{background:#E53E3E;color:white;padding:0.8rem 1.5rem;border-radius:6px;border:none;font-weight:600;cursor:pointer;transition:all 0.2s}
@@ -113,17 +116,20 @@ section{padding:6rem 2rem}
 .social-links{display:flex;gap:1rem;margin-top:2rem;justify-content:center;flex-wrap:wrap}
 .social-link{padding:0.8rem 1.5rem;background:var(--primary);color:white;text-decoration:none;border-radius:8px;font-weight:600;transition:all 0.2s}
 .social-link:hover{background:var(--dark);transform:translateY(-2px)}
+.speak-cta{background:var(--accent);color:var(--dark);padding:2rem;border-radius:12px;text-align:center;margin-top:3rem}
+.speak-cta h3{font-size:1.8rem;font-weight:700;margin-bottom:1rem}
+.speak-cta p{margin-bottom:1.5rem;color:var(--text-dark)}
 @media (max-width:1024px){
 .hero-container{grid-template-columns:1fr;gap:3rem}
 .hero-image{order:-1;max-width:350px;margin:0 auto}
 .hero h1{font-size:3.5rem}
+.event-item{grid-template-columns:1fr}
 }
 @media (max-width:768px){
 .hero h1{font-size:2.5rem}
 .section-title{font-size:2.2rem}
 .nav-links{gap:1.5rem;font-size:0.9rem}
-.event-item{grid-template-columns:1fr;text-align:center}
-.event-meta{justify-content:center;flex-wrap:wrap}
+.event-meta{justify-content:center}
 .admin-tabs{overflow-x:auto}
 }
 </style>
@@ -163,9 +169,7 @@ section{padding:6rem 2rem}
 <h2 class="section-title">Events</h2>
 <p class="section-description">Join us for workshops, panels, and networking sessions</p>
 </div>
-<div class="events-list" id="eventsList">
-<p style="text-align:center;color:var(--text-light)">Loading events...</p>
-</div>
+<div class="events-list" id="eventsList"></div>
 </div>
 </section>
 
@@ -176,8 +180,19 @@ section{padding:6rem 2rem}
 <h2 class="section-title">Meet Our Team</h2>
 <p class="section-description">Passionate leaders dedicated to empowering women in data analytics</p>
 </div>
-<div class="team-grid" id="teamGrid">
-<p style="text-align:center;color:var(--text-light)">Loading team members...</p>
+<div class="team-grid" id="teamGrid"></div>
+
+<div class="section-header" style="margin-top:5rem">
+<div class="section-tag">FEATURED</div>
+<h2 class="section-title">Past Speakers</h2>
+<p class="section-description">Amazing women who've shared their expertise with our community</p>
+</div>
+<div class="speaker-showcase" id="pastSpeakersGrid"></div>
+
+<div class="speak-cta" id="speakCTA">
+<h3>Want to Speak at Our Event?</h3>
+<p>Share your Power BI knowledge and inspire our community</p>
+<a href="" target="_blank" class="btn btn-primary" id="sessionizeLink">Submit Your Talk</a>
 </div>
 
 <div class="contact-info">
@@ -208,11 +223,7 @@ section{padding:6rem 2rem}
 <h2 class="section-title">Latest Articles</h2>
 <p class="section-description">Insights, tutorials, and best practices from our community</p>
 </div>
-<div class="content-grid">
-<div class="content-card"><div class="content-image"></div><div class="content-body"><div class="content-meta">January 20, 2026</div><h3>Mastering DAX: Advanced Formulas</h3><p class="content-excerpt">Learn how to take your DAX skills to the next level with these advanced techniques and real-world examples.</p></div></div>
-<div class="content-card"><div class="content-image"></div><div class="content-body"><div class="content-meta">January 15, 2026</div><h3>Career Growth in Business Intelligence</h3><p class="content-excerpt">Strategies for advancing your career in the BI field and building your professional network.</p></div></div>
-<div class="content-card"><div class="content-image"></div><div class="content-body"><div class="content-meta">January 10, 2026</div><h3>Designing Impactful Dashboards</h3><p class="content-excerpt">Best practices for creating dashboards that tell a story and drive business decisions.</p></div></div>
-</div>
+<div class="content-grid" id="blogGrid"></div>
 </div>
 </section>
 
@@ -223,14 +234,7 @@ section{padding:6rem 2rem}
 <h2 class="section-title">Resources</h2>
 <p class="section-description">Curated materials to accelerate your Power BI journey</p>
 </div>
-<div class="cards-grid">
-<div class="card"><div class="card-number">01</div><h3>Tutorials & Guides</h3><p>Comprehensive step-by-step tutorials for beginners through advanced users.</p></div>
-<div class="card"><div class="card-number">02</div><h3>Video Library</h3><p>Recorded sessions from past meetups, workshops, and expert presentations.</p></div>
-<div class="card"><div class="card-number">03</div><h3>Sample Datasets</h3><p>Practice with real-world datasets shared by community members.</p></div>
-<div class="card"><div class="card-number">04</div><h3>Best Practices</h3><p>Industry-standard approaches for efficient reporting and visualization.</p></div>
-<div class="card"><div class="card-number">05</div><h3>External Resources</h3><p>Curated links to documentation, forums, and recommended learning platforms.</p></div>
-<div class="card"><div class="card-number">06</div><h3>Templates</h3><p>Starter templates for common Power BI scenarios and use cases.</p></div>
-</div>
+<div class="cards-grid" id="resourcesGrid"></div>
 </div>
 </section>
 
@@ -272,114 +276,63 @@ section{padding:6rem 2rem}
 
 <div class="admin-tabs">
 <button class="admin-tab active" onclick="switchTab('events')">Events</button>
-<button class="admin-tab" onclick="switchTab('team')">Team Members</button>
-<button class="admin-tab" onclick="switchTab('speakers')">Speakers</button>
-<button class="admin-tab" onclick="switchTab('settings')">Settings & Links</button>
+<button class="admin-tab" onclick="switchTab('blog')">Blog</button>
+<button class="admin-tab" onclick="switchTab('resources')">Resources</button>
+<button class="admin-tab" onclick="switchTab('team')">Team</button>
+<button class="admin-tab" onclick="switchTab('pastspeakers')">Past Speakers</button>
+<button class="admin-tab" onclick="switchTab('settings')">Settings</button>
 </div>
 
 <div class="admin-content-section active" id="eventsAdmin">
-<button class="btn btn-primary" onclick="openAddEventModal()" style="margin-bottom:2rem">Add Event</button>
-<div class="events-admin-grid" id="eventsAdminGrid"></div>
+<button class="btn btn-primary" onclick="openModal('event')" style="margin-bottom:2rem">Add Event</button>
+<div class="admin-grid" id="eventsGrid"></div>
+</div>
+
+<div class="admin-content-section" id="blogAdmin">
+<button class="btn btn-primary" onclick="openModal('blog')" style="margin-bottom:2rem">Add Blog Post</button>
+<div class="admin-grid" id="blogAdminGrid"></div>
+</div>
+
+<div class="admin-content-section" id="resourcesAdmin">
+<button class="btn btn-primary" onclick="openModal('resource')" style="margin-bottom:2rem">Add Resource</button>
+<div class="admin-grid" id="resourcesAdminGrid"></div>
 </div>
 
 <div class="admin-content-section" id="teamAdmin">
-<button class="btn btn-primary" onclick="openAddTeamModal()" style="margin-bottom:2rem">Add Team Member</button>
-<div class="team-admin-grid" id="teamAdminGrid"></div>
+<button class="btn btn-primary" onclick="openModal('team')" style="margin-bottom:2rem">Add Team Member</button>
+<div class="admin-grid" id="teamAdminGrid"></div>
 </div>
 
-<div class="admin-content-section" id="speakersAdmin">
-<button class="btn btn-primary" onclick="openAddSpeakerModal()" style="margin-bottom:2rem">Add Speaker</button>
-<div class="speakers-grid" id="speakersGrid"></div>
+<div class="admin-content-section" id="pastspeakersAdmin">
+<button class="btn btn-primary" onclick="openModal('pastspeaker')" style="margin-bottom:2rem">Add Past Speaker</button>
+<div class="admin-grid" id="pastSpeakersAdminGrid"></div>
 </div>
 
 <div class="admin-content-section" id="settingsAdmin">
-<h3 style="margin-bottom:2rem">Update Site Links & Contact Info</h3>
+<h3 style="margin-bottom:2rem">Site Settings</h3>
 <div class="settings-grid" id="settingsGrid"></div>
-<button class="btn btn-primary" onclick="openEditSettingsModal()" style="margin-top:2rem">Edit Settings</button>
+<button class="btn btn-primary" onclick="openModal('settings')" style="margin-top:2rem">Edit Settings</button>
 </div>
 
 </div>
 </div>
 </section>
 
-<div class="modal" id="addEventModal">
+<div class="modal" id="mainModal">
 <div class="modal-content">
-<h3>Add New Event</h3>
-<form id="addEventForm">
-<div class="form-group"><label for="eventTitle">Event Title *</label><input type="text" id="eventTitle" required></div>
-<div class="form-group"><label for="eventDate">Date *</label><input type="date" id="eventDate" required></div>
-<div class="form-group"><label for="eventSpeaker">Speaker</label><input type="text" id="eventSpeaker"></div>
-<div class="form-group"><label for="eventLocation">Location</label><input type="text" id="eventLocation" placeholder="e.g., Meetup - Toronto"></div>
-<div class="form-group"><label for="eventDescription">Description *</label><textarea id="eventDescription" rows="4" required></textarea></div>
-<div class="form-group"><label for="eventMeetupLink">Meetup Registration Link *</label><input type="url" id="eventMeetupLink" placeholder="https://meetup.com/..." required></div>
-<button type="submit" class="btn btn-primary" style="width:100%">Add Event</button>
-<button type="button" class="close-modal" onclick="closeAddEventModal()">Cancel</button>
-</form>
-</div>
-</div>
-
-<div class="modal" id="addTeamModal">
-<div class="modal-content">
-<h3>Add Team Member</h3>
-<form id="addTeamForm">
-<div class="form-group"><label for="teamName">Full Name *</label><input type="text" id="teamName" required></div>
-<div class="form-group"><label for="teamRole">Role *</label><input type="text" id="teamRole" placeholder="e.g., Founder, Co-Organizer" required></div>
-<div class="form-group"><label for="teamBio">Bio *</label><textarea id="teamBio" rows="4" required></textarea></div>
-<div class="form-group"><label for="teamPhoto">Photo URL</label><input type="url" id="teamPhoto" placeholder="https://..."></div>
-<button type="submit" class="btn btn-primary" style="width:100%">Add Team Member</button>
-<button type="button" class="close-modal" onclick="closeAddTeamModal()">Cancel</button>
-</form>
-</div>
-</div>
-
-<div class="modal" id="addSpeakerModal">
-<div class="modal-content">
-<h3>Add New Speaker</h3>
-<form id="addSpeakerForm">
-<div class="form-group"><label for="speakerName">Full Name *</label><input type="text" id="speakerName" required></div>
-<div class="form-group"><label for="speakerExpertise">Expertise *</label><input type="text" id="speakerExpertise" placeholder="e.g., DAX Expert, Data Visualization" required></div>
-<div class="form-group"><label for="speakerBio">Bio</label><textarea id="speakerBio" rows="4"></textarea></div>
-<div class="form-group"><label for="speakerEmail">Email</label><input type="email" id="speakerEmail"></div>
-<button type="submit" class="btn btn-primary" style="width:100%">Add Speaker</button>
-<button type="button" class="close-modal" onclick="closeAddSpeakerModal()">Cancel</button>
-</form>
-</div>
-</div>
-
-<div class="modal" id="editSettingsModal">
-<div class="modal-content">
-<h3>Edit Settings & Links</h3>
-<form id="editSettingsForm">
-<div class="form-group"><label for="settingsEmail">Contact Email *</label><input type="email" id="settingsEmail" placeholder="contact@powerbiwomen.com" required></div>
-<div class="form-group"><label for="settingsMeetup">Meetup Group URL</label><input type="url" id="settingsMeetup" placeholder="https://meetup.com/your-group"></div>
-<div class="form-group"><label for="settingsLinkedIn">LinkedIn Page URL</label><input type="url" id="settingsLinkedIn" placeholder="https://linkedin.com/company/..."></div>
-<div class="form-group"><label for="settingsTwitter">Twitter/X URL</label><input type="url" id="settingsTwitter" placeholder="https://twitter.com/..."></div>
-<div class="form-group"><label for="settingsInstagram">Instagram URL</label><input type="url" id="settingsInstagram" placeholder="https://instagram.com/..."></div>
-<button type="submit" class="btn btn-primary" style="width:100%">Save Settings</button>
-<button type="button" class="close-modal" onclick="closeEditSettingsModal()">Cancel</button>
-</form>
+<h3 id="modalTitle">Add Item</h3>
+<form id="mainForm"></form>
 </div>
 </div>
 
 <script>
 const ADMIN_PASSWORD='powerbi2026';
 let isLoggedIn=false;
+let currentModalType='';
 
-// Default settings
-const defaultSettings={
-email:'contact@powerbiwomen.com',
-meetup:'',
-linkedin:'',
-twitter:'',
-instagram:''
-};
+const defaultSettings={email:'contact@powerbiwomen.com',sessionize:'',meetup:'',linkedin:'',twitter:'',instagram:''};
+if(!localStorage.getItem('settings'))localStorage.setItem('settings',JSON.stringify(defaultSettings));
 
-// Initialize settings
-if(!localStorage.getItem('settings')){
-localStorage.setItem('settings',JSON.stringify(defaultSettings));
-}
-
-// Tab switching
 function switchTab(tab){
 document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
 document.querySelectorAll('.admin-content-section').forEach(s=>s.classList.remove('active'));
@@ -388,21 +341,322 @@ document.getElementById(tab+'Admin').classList.add('active');
 if(tab==='settings')loadSettings();
 }
 
-// Load Settings
+function openModal(type){
+currentModalType=type;
+const modal=document.getElementById('mainModal');
+const title=document.getElementById('modalTitle');
+const form=document.getElementById('mainForm');
+const titles={
+event:'Add Event',blog:'Add Blog Post',resource:'Add Resource',
+team:'Add Team Member',pastspeaker:'Add Past Speaker',settings:'Edit Settings'
+};
+title.textContent=titles[type];
+form.innerHTML=getFormHTML(type);
+modal.classList.add('active');
+if(type==='settings'){
+const settings=JSON.parse(localStorage.getItem('settings')||JSON.stringify(defaultSettings));
+Object.keys(settings).forEach(key=>{
+const input=document.getElementById('settings'+key.charAt(0).toUpperCase()+key.slice(1));
+if(input)input.value=settings[key]||'';
+});
+}
+}
+
+function closeModal(){
+document.getElementById('mainModal').classList.remove('active');
+document.getElementById('mainForm').innerHTML='';
+}
+
+function getFormHTML(type){
+const forms={
+event:`<div class="form-group"><label>Event Title *</label><input type="text" id="inputTitle" required></div>
+<div class="form-group"><label>Date *</label><input type="date" id="inputDate" required></div>
+<div class="form-group"><label>Speaker</label><input type="text" id="inputSpeaker"></div>
+<div class="form-group"><label>Location</label><input type="text" id="inputLocation" placeholder="e.g., Toronto"></div>
+<div class="form-group"><label>Description *</label><textarea id="inputDescription" rows="4" required></textarea></div>
+<div class="form-group"><label>Event Image URL</label><input type="url" id="inputImage" placeholder="https://..."></div>
+<div class="form-group"><label>Meetup Registration Link *</label><input type="url" id="inputLink" required></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Add Event</button>
+<button type="button" class="close-modal" onclick="closeModal()">Cancel</button>`,
+blog:`<div class="form-group"><label>Title *</label><input type="text" id="inputTitle" required></div>
+<div class="form-group"><label>Date *</label><input type="date" id="inputDate" required></div>
+<div class="form-group"><label>Excerpt *</label><textarea id="inputExcerpt" rows="3" required></textarea></div>
+<div class="form-group"><label>Image URL</label><input type="url" id="inputImage" placeholder="https://..."></div>
+<div class="form-group"><label>Link to Full Article</label><input type="url" id="inputLink" placeholder="https://..."></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Add Post</button>
+<button type="button" class="close-modal" onclick="closeModal()">Cancel</button>`,
+resource:`<div class="form-group"><label>Resource Title *</label><input type="text" id="inputTitle" required></div>
+<div class="form-group"><label>Description *</label><textarea id="inputDescription" rows="4" required></textarea></div>
+<div class="form-group"><label>Link</label><input type="url" id="inputLink" placeholder="https://..."></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Add Resource</button>
+<button type="button" class="close-modal" onclick="closeModal()">Cancel</button>`,
+team:`<div class="form-group"><label>Full Name *</label><input type="text" id="inputName" required></div>
+<div class="form-group"><label>Role *</label><input type="text" id="inputRole" placeholder="e.g., Founder" required></div>
+<div class="form-group"><label>Bio *</label><textarea id="inputBio" rows="4" required></textarea></div>
+<div class="form-group"><label>Photo URL</label><input type="url" id="inputPhoto" placeholder="https://..."></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Add Member</button>
+<button type="button" class="close-modal" onclick="closeModal()">Cancel</button>`,
+pastspeaker:`<div class="form-group"><label>Full Name *</label><input type="text" id="inputName" required></div>
+<div class="form-group"><label>Expertise *</label><input type="text" id="inputExpertise" placeholder="e.g., DAX Expert" required></div>
+<div class="form-group"><label>Photo URL</label><input type="url" id="inputPhoto" placeholder="https://..."></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Add Speaker</button>
+<button type="button" class="close-modal" onclick="closeModal()">Cancel</button>`,
+settings:`<div class="form-group"><label>Contact Email *</label><input type="email" id="settingsEmail" required></div>
+<div class="form-group"><label>Sessionize Link (for speakers)</label><input type="url" id="settingsSessionize" placeholder="https://sessionize.com/..."></div>
+<div class="form-group"><label>Meetup Group URL</label><input type="url" id="settingsMeetup" placeholder="https://meetup.com/..."></div>
+<div class="form-group"><label>LinkedIn</label><input type="url" id="settingsLinkedin" placeholder="https://linkedin.com/..."></div>
+<div class="form-group"><label>Twitter/X</label><input type="url" id="settingsTwitter" placeholder="https://twitter.com/..."></div>
+<div class="form-group"><label>Instagram</label><input type="url" id="settingsInstagram" placeholder="https://instagram.com/..."></div>
+<button type="submit" class="btn btn-primary" style="width:100%">Save Settings</button>
+<button type="button" class="close-modal" onclick="closeModal()">Cancel</button>`
+};
+return forms[type];
+}
+
+document.getElementById('mainForm').addEventListener('submit',e=>{
+e.preventDefault();
+const handlers={
+event:saveEvent,blog:saveBlog,resource:saveResource,
+team:saveTeam,pastspeaker:savePastSpeaker,settings:saveSettings
+};
+handlers[currentModalType]();
+});
+
+function saveEvent(){
+const events=JSON.parse(localStorage.getItem('events')||'[]');
+events.push({
+title:document.getElementById('inputTitle').value,
+date:document.getElementById('inputDate').value,
+speaker:document.getElementById('inputSpeaker').value,
+location:document.getElementById('inputLocation').value,
+description:document.getElementById('inputDescription').value,
+image:document.getElementById('inputImage').value,
+link:document.getElementById('inputLink').value
+});
+localStorage.setItem('events',JSON.stringify(events));
+closeModal();loadEvents();
+}
+
+function saveBlog(){
+const blogs=JSON.parse(localStorage.getItem('blogs')||'[]');
+blogs.push({
+title:document.getElementById('inputTitle').value,
+date:document.getElementById('inputDate').value,
+excerpt:document.getElementById('inputExcerpt').value,
+image:document.getElementById('inputImage').value,
+link:document.getElementById('inputLink').value
+});
+localStorage.setItem('blogs',JSON.stringify(blogs));
+closeModal();loadBlogs();
+}
+
+function saveResource(){
+const resources=JSON.parse(localStorage.getItem('resources')||'[]');
+resources.push({
+title:document.getElementById('inputTitle').value,
+description:document.getElementById('inputDescription').value,
+link:document.getElementById('inputLink').value
+});
+localStorage.setItem('resources',JSON.stringify(resources));
+closeModal();loadResources();
+}
+
+function saveTeam(){
+const team=JSON.parse(localStorage.getItem('team')||'[]');
+team.push({
+name:document.getElementById('inputName').value,
+role:document.getElementById('inputRole').value,
+bio:document.getElementById('inputBio').value,
+photo:document.getElementById('inputPhoto').value
+});
+localStorage.setItem('team',JSON.stringify(team));
+closeModal();loadTeam();
+}
+
+function savePastSpeaker(){
+const speakers=JSON.parse(localStorage.getItem('pastspeakers')||'[]');
+speakers.push({
+name:document.getElementById('inputName').value,
+expertise:document.getElementById('inputExpertise').value,
+photo:document.getElementById('inputPhoto').value
+});
+localStorage.setItem('pastspeakers',JSON.stringify(speakers));
+closeModal();loadPastSpeakers();
+}
+
+function saveSettings(){
+const settings={
+email:document.getElementById('settingsEmail').value,
+sessionize:document.getElementById('settingsSessionize').value,
+meetup:document.getElementById('settingsMeetup').value,
+linkedin:document.getElementById('settingsLinkedin').value,
+twitter:document.getElementById('settingsTwitter').value,
+instagram:document.getElementById('settingsInstagram').value
+};
+localStorage.setItem('settings',JSON.stringify(settings));
+closeModal();loadSettings();updateContactDisplay();
+alert('Settings saved!');
+}
+
+function deleteItem(type,index){
+if(!confirm('Delete this item?'))return;
+const items=JSON.parse(localStorage.getItem(type)||'[]');
+items.splice(index,1);
+localStorage.setItem(type,JSON.stringify(items));
+const loaders={
+events:loadEvents,blogs:loadBlogs,resources:loadResources,
+team:loadTeam,pastspeakers:loadPastSpeakers
+};
+loaders[type]();
+}
+
+function loadEvents(){
+const events=JSON.parse(localStorage.getItem('events')||'[]');
+const list=document.getElementById('eventsList');
+const admin=document.getElementById('eventsGrid');
+if(events.length===0){
+list.innerHTML='<p style="text-align:center;color:var(--text-light);grid-column:1/-1">No upcoming events</p>';
+if(admin)admin.innerHTML='<p style="text-align:center;color:var(--text-light);grid-column:1/-1">No events added</p>';
+return;
+}
+list.innerHTML=events.map((e,i)=>{
+const date=new Date(e.date);
+return`<div class="event-item">
+${e.image?`<div class="event-image-box"><img src="${e.image}" alt="${e.title}"></div>`:`<div class="event-image-box"></div>`}
+<div class="event-content">
+<h3>${e.title}</h3>
+<div class="event-meta">
+<span>${date.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span>
+${e.speaker?`<span>Speaker: ${e.speaker}</span>`:''}
+${e.location?`<span>Location: ${e.location}</span>`:''}
+</div>
+<p class="event-description">${e.description}</p>
+</div>
+<a href="${e.link}" target="_blank" class="btn btn-primary">Register</a>
+</div>`;
+}).join('');
+if(admin){
+admin.innerHTML=events.map((e,i)=>`<div class="admin-card">
+<h4>${e.title}</h4>
+<p class="admin-card-details">${new Date(e.date).toLocaleDateString()}</p>
+<button class="delete-btn" onclick="deleteItem('events',${i})">Delete</button>
+</div>`).join('');
+}
+}
+
+function loadBlogs(){
+const blogs=JSON.parse(localStorage.getItem('blogs')||'[]');
+const grid=document.getElementById('blogGrid');
+const admin=document.getElementById('blogAdminGrid');
+if(blogs.length===0){
+grid.innerHTML='<p style="text-align:center;color:var(--text-light);grid-column:1/-1">No blog posts yet</p>';
+if(admin)admin.innerHTML='<p style="text-align:center;color:var(--text-light);grid-column:1/-1">No blog posts added</p>';
+return;
+}
+grid.innerHTML=blogs.map((b,i)=>{
+const card=`<div class="content-card">
+${b.image?`<img src="${b.image}" class="content-image" alt="${b.title}">`:`<div class="content-image"></div>`}
+<div class="content-body">
+<div class="content-meta">${new Date(b.date).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
+<h3>${b.title}</h3>
+<p class="content-excerpt">${b.excerpt}</p>
+</div>
+</div>`;
+return b.link?`<a href="${b.link}" target="_blank" style="text-decoration:none;color:inherit">${card}</a>`:card;
+}).join('');
+if(admin){
+admin.innerHTML=blogs.map((b,i)=>`<div class="admin-card">
+<h4>${b.title}</h4>
+<p class="admin-card-details">${new Date(b.date).toLocaleDateString()}</p>
+<button class="delete-btn" onclick="deleteItem('blogs',${i})">Delete</button>
+</div>`).join('');
+}
+}
+
+function loadResources(){
+const resources=JSON.parse(localStorage.getItem('resources')||'[]');
+const grid=document.getElementById('resourcesGrid');
+const admin=document.getElementById('resourcesAdminGrid');
+if(resources.length===0){
+grid.innerHTML='<p style="text-align:center;color:var(--text-light);grid-column:1/-1">No resources yet</p>';
+if(admin)admin.innerHTML='<p style="text-align:center;color:var(--text-light);grid-column:1/-1">No resources added</p>';
+return;
+}
+grid.innerHTML=resources.map((r,i)=>{
+const card=`<div class="card">
+<div class="card-number">${String(i+1).padStart(2,'0')}</div>
+<h3>${r.title}</h3>
+<p>${r.description}</p>
+</div>`;
+return r.link?`<a href="${r.link}" target="_blank" style="text-decoration:none;color:inherit">${card}</a>`:card;
+}).join('');
+if(admin){
+admin.innerHTML=resources.map((r,i)=>`<div class="admin-card">
+<h4>${r.title}</h4>
+<p class="admin-card-details">${r.description}</p>
+<button class="delete-btn" onclick="deleteItem('resources',${i})">Delete</button>
+</div>`).join('');
+}
+}
+
+function loadTeam(){
+const team=JSON.parse(localStorage.getItem('team')||'[]');
+const grid=document.getElementById('teamGrid');
+const admin=document.getElementById('teamAdminGrid');
+if(team.length===0){
+grid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">Team information coming soon</p>';
+if(admin)admin.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">No team members added</p>';
+return;
+}
+grid.innerHTML=team.map(m=>`<div class="team-member">
+${m.photo?`<img src="${m.photo}" class="team-photo" alt="${m.name}">`:`<div class="team-photo"></div>`}
+<h3>${m.name}</h3>
+<div class="team-role">${m.role}</div>
+<p class="team-bio">${m.bio}</p>
+</div>`).join('');
+if(admin){
+admin.innerHTML=team.map((m,i)=>`<div class="admin-card">
+<h4>${m.name}</h4>
+<p class="admin-card-details">${m.role}</p>
+<button class="delete-btn" onclick="deleteItem('team',${i})">Delete</button>
+</div>`).join('');
+}
+}
+
+function loadPastSpeakers(){
+const speakers=JSON.parse(localStorage.getItem('pastspeakers')||'[]');
+const grid=document.getElementById('pastSpeakersGrid');
+const admin=document.getElementById('pastSpeakersAdminGrid');
+if(speakers.length===0){
+grid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">Past speakers will be featured here</p>';
+if(admin)admin.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">No past speakers added</p>';
+return;
+}
+grid.innerHTML=speakers.map(s=>`<div class="speaker-showcase-item">
+${s.photo?`<img src="${s.photo}" class="speaker-showcase-photo" alt="${s.name}">`:`<div class="speaker-showcase-photo"></div>`}
+<h4>${s.name}</h4>
+<div class="speaker-showcase-expertise">${s.expertise}</div>
+</div>`).join('');
+if(admin){
+admin.innerHTML=speakers.map((s,i)=>`<div class="admin-card">
+<h4>${s.name}</h4>
+<p class="admin-card-details">${s.expertise}</p>
+<button class="delete-btn" onclick="deleteItem('pastspeakers',${i})">Delete</button>
+</div>`).join('');
+}
+}
+
 function loadSettings(){
 const settings=JSON.parse(localStorage.getItem('settings')||JSON.stringify(defaultSettings));
 const grid=document.getElementById('settingsGrid');
 grid.innerHTML=`
-<div class="settings-item">
-<h4>Contact Email</h4>
-<div class="settings-value">${settings.email}</div>
-</div>
-${settings.meetup?`<div class="settings-item"><h4>Meetup Group</h4><div class="settings-value">${settings.meetup}</div></div>`:''}
+<div class="settings-item"><h4>Contact Email</h4><div class="settings-value">${settings.email}</div></div>
+${settings.sessionize?`<div class="settings-item"><h4>Sessionize (Speaker Submissions)</h4><div class="settings-value">${settings.sessionize}</div></div>`:''}
+${settings.meetup?`<div class="settings-item"><h4>Meetup</h4><div class="settings-value">${settings.meetup}</div></div>`:''}
 ${settings.linkedin?`<div class="settings-item"><h4>LinkedIn</h4><div class="settings-value">${settings.linkedin}</div></div>`:''}
 ${settings.twitter?`<div class="settings-item"><h4>Twitter/X</h4><div class="settings-value">${settings.twitter}</div></div>`:''}
 ${settings.instagram?`<div class="settings-item"><h4>Instagram</h4><div class="settings-value">${settings.instagram}</div></div>`:''}
 `;
-updateContactDisplay();
 }
 
 function updateContactDisplay(){
@@ -413,217 +667,35 @@ emailLink.textContent=settings.email;
 
 const socialLinksDiv=document.getElementById('socialLinks');
 let socialHTML='';
-if(settings.meetup)socialHTML+=`<a href="${settings.meetup}" target="_blank" class="social-link">Join on Meetup</a>`;
+if(settings.meetup)socialHTML+=`<a href="${settings.meetup}" target="_blank" class="social-link">Meetup</a>`;
 if(settings.linkedin)socialHTML+=`<a href="${settings.linkedin}" target="_blank" class="social-link">LinkedIn</a>`;
 if(settings.twitter)socialHTML+=`<a href="${settings.twitter}" target="_blank" class="social-link">Twitter</a>`;
 if(settings.instagram)socialHTML+=`<a href="${settings.instagram}" target="_blank" class="social-link">Instagram</a>`;
 socialLinksDiv.innerHTML=socialHTML;
-}
 
-function openEditSettingsModal(){
-const settings=JSON.parse(localStorage.getItem('settings')||JSON.stringify(defaultSettings));
-document.getElementById('settingsEmail').value=settings.email;
-document.getElementById('settingsMeetup').value=settings.meetup||'';
-document.getElementById('settingsLinkedIn').value=settings.linkedin||'';
-document.getElementById('settingsTwitter').value=settings.twitter||'';
-document.getElementById('settingsInstagram').value=settings.instagram||'';
-document.getElementById('editSettingsModal').classList.add('active');
-}
-
-function closeEditSettingsModal(){
-document.getElementById('editSettingsModal').classList.remove('active');
-}
-
-document.getElementById('editSettingsForm').addEventListener('submit',(e)=>{
-e.preventDefault();
-const settings={
-email:document.getElementById('settingsEmail').value,
-meetup:document.getElementById('settingsMeetup').value,
-linkedin:document.getElementById('settingsLinkedIn').value,
-twitter:document.getElementById('settingsTwitter').value,
-instagram:document.getElementById('settingsInstagram').value
-};
-localStorage.setItem('settings',JSON.stringify(settings));
-closeEditSettingsModal();
-loadSettings();
-alert('Settings updated successfully!');
-});
-
-// Load Events
-function loadEvents(){
-const events=JSON.parse(localStorage.getItem('events')||'[]');
-const list=document.getElementById('eventsList');
-const adminGrid=document.getElementById('eventsAdminGrid');
-if(events.length===0){
-list.innerHTML='<p style="text-align:center;color:var(--text-light)">No upcoming events. Check back soon!</p>';
-if(adminGrid)adminGrid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">No events added yet.</p>';
-return;
-}
-list.innerHTML=events.map((event,i)=>{
-const date=new Date(event.date);
-const day=date.getDate();
-const month=date.toLocaleString('default',{month:'short'});
-return`<div class="event-item">
-<div class="event-date-box"><div class="event-day">${day}</div><div class="event-month">${month}</div></div>
-<div class="event-content">
-<h3>${event.title}</h3>
-<div class="event-meta">
-${event.speaker?`<span>Speaker: ${event.speaker}</span>`:''}
-${event.location?`<span>Location: ${event.location}</span>`:''}
-</div>
-<p class="event-description">${event.description}</p>
-</div>
-<a href="${event.meetupLink}" target="_blank" class="btn btn-primary">Register on Meetup</a>
-</div>`;
-}).join('');
-if(adminGrid){
-adminGrid.innerHTML=events.map((event,i)=>`<div class="event-admin-card">
-<h4>${event.title}</h4>
-<p class="event-admin-details">${new Date(event.date).toLocaleDateString()}<br>${event.speaker||'No speaker'}<br>${event.location||'No location'}</p>
-<button class="delete-btn" onclick="deleteEvent(${i})">Delete</button>
-</div>`).join('');
+const sessionizeLink=document.getElementById('sessionizeLink');
+const speakCTA=document.getElementById('speakCTA');
+if(settings.sessionize){
+sessionizeLink.href=settings.sessionize;
+speakCTA.style.display='block';
+}else{
+speakCTA.style.display='none';
 }
 }
 
-// Load Team
-function loadTeam(){
-const team=JSON.parse(localStorage.getItem('team')||'[]');
-const grid=document.getElementById('teamGrid');
-const adminGrid=document.getElementById('teamAdminGrid');
-if(team.length===0){
-grid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">Team information coming soon!</p>';
-if(adminGrid)adminGrid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">No team members added yet.</p>';
-return;
-}
-grid.innerHTML=team.map(member=>`<div class="team-member">
-${member.photo?`<img src="${member.photo}" class="team-photo" alt="${member.name}">`:`<div class="team-photo"></div>`}
-<h3>${member.name}</h3>
-<div class="team-role">${member.role}</div>
-<p class="team-bio">${member.bio}</p>
-</div>`).join('');
-if(adminGrid){
-adminGrid.innerHTML=team.map((member,i)=>`<div class="team-admin-card">
-<h4>${member.name}</h4>
-<p class="team-admin-role">${member.role}</p>
-<p class="team-admin-bio">${member.bio}</p>
-<button class="delete-btn" onclick="deleteTeam(${i})">Delete</button>
-</div>`).join('');
-}
-}
-
-// Load Speakers
-function loadSpeakers(){
-const speakers=JSON.parse(localStorage.getItem('speakers')||'[]');
-const grid=document.getElementById('speakersGrid');
-if(speakers.length===0){
-grid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-light)">No speakers added yet.</p>';
-return;
-}
-grid.innerHTML=speakers.map((speaker,i)=>`<div class="speaker-card">
-<div class="speaker-initial">${speaker.name.charAt(0)}</div>
-<h4>${speaker.name}</h4>
-<div class="speaker-expertise">${speaker.expertise}</div>
-${speaker.bio?`<p class="speaker-bio">${speaker.bio}</p>`:''}
-${speaker.email?`<p style="color:var(--text-light);font-size:0.85rem;margin-bottom:1rem">${speaker.email}</p>`:''}
-<button class="delete-btn" onclick="deleteSpeaker(${i})">Remove</button>
-</div>`).join('');
-}
-
-// Event Management
-function openAddEventModal(){document.getElementById('addEventModal').classList.add('active')}
-function closeAddEventModal(){document.getElementById('addEventModal').classList.remove('active');document.getElementById('addEventForm').reset()}
-document.getElementById('addEventForm').addEventListener('submit',(e)=>{
-e.preventDefault();
-const event={
-title:document.getElementById('eventTitle').value,
-date:document.getElementById('eventDate').value,
-speaker:document.getElementById('eventSpeaker').value,
-location:document.getElementById('eventLocation').value,
-description:document.getElementById('eventDescription').value,
-meetupLink:document.getElementById('eventMeetupLink').value
-};
-const events=JSON.parse(localStorage.getItem('events')||'[]');
-events.push(event);
-localStorage.setItem('events',JSON.stringify(events));
-closeAddEventModal();
-loadEvents();
-});
-function deleteEvent(i){
-if(confirm('Delete this event?')){
-const events=JSON.parse(localStorage.getItem('events')||'[]');
-events.splice(i,1);
-localStorage.setItem('events',JSON.stringify(events));
-loadEvents();
-}
-}
-
-// Team Management
-function openAddTeamModal(){document.getElementById('addTeamModal').classList.add('active')}
-function closeAddTeamModal(){document.getElementById('addTeamModal').classList.remove('active');document.getElementById('addTeamForm').reset()}
-document.getElementById('addTeamForm').addEventListener('submit',(e)=>{
-e.preventDefault();
-const member={
-name:document.getElementById('teamName').value,
-role:document.getElementById('teamRole').value,
-bio:document.getElementById('teamBio').value,
-photo:document.getElementById('teamPhoto').value
-};
-const team=JSON.parse(localStorage.getItem('team')||'[]');
-team.push(member);
-localStorage.setItem('team',JSON.stringify(team));
-closeAddTeamModal();
-loadTeam();
-});
-function deleteTeam(i){
-if(confirm('Remove this team member?')){
-const team=JSON.parse(localStorage.getItem('team')||'[]');
-team.splice(i,1);
-localStorage.setItem('team',JSON.stringify(team));
-loadTeam();
-}
-}
-
-// Speaker Management
-function openAddSpeakerModal(){document.getElementById('addSpeakerModal').classList.add('active')}
-function closeAddSpeakerModal(){document.getElementById('addSpeakerModal').classList.remove('active');document.getElementById('addSpeakerForm').reset()}
-document.getElementById('addSpeakerForm').addEventListener('submit',(e)=>{
-e.preventDefault();
-const speaker={
-name:document.getElementById('speakerName').value,
-expertise:document.getElementById('speakerExpertise').value,
-bio:document.getElementById('speakerBio').value,
-email:document.getElementById('speakerEmail').value
-};
-const speakers=JSON.parse(localStorage.getItem('speakers')||'[]');
-speakers.push(speaker);
-localStorage.setItem('speakers',JSON.stringify(speakers));
-closeAddSpeakerModal();
-loadSpeakers();
-});
-function deleteSpeaker(i){
-if(confirm('Remove this speaker?')){
-const speakers=JSON.parse(localStorage.getItem('speakers')||'[]');
-speakers.splice(i,1);
-localStorage.setItem('speakers',JSON.stringify(speakers));
-loadSpeakers();
-}
-}
-
-// Login
 window.addEventListener('hashchange',()=>{if(window.location.hash==='#admin'){document.getElementById('admin').style.display='block'}});
 if(window.location.hash==='#admin'){document.getElementById('admin').style.display='block'}
-document.getElementById('loginForm').addEventListener('submit',(e)=>{
+
+document.getElementById('loginForm').addEventListener('submit',e=>{
 e.preventDefault();
 if(document.getElementById('adminPassword').value===ADMIN_PASSWORD){
 isLoggedIn=true;
 document.getElementById('loginPanel').style.display='none';
 document.getElementById('adminContent').classList.remove('hidden');
-loadEvents();
-loadTeam();
-loadSpeakers();
-loadSettings();
-}else{alert('Incorrect password.')}
+loadEvents();loadBlogs();loadResources();loadTeam();loadPastSpeakers();loadSettings();
+}else{alert('Incorrect password')}
 });
+
 function logout(){
 isLoggedIn=false;
 document.getElementById('loginPanel').style.display='block';
@@ -631,14 +703,12 @@ document.getElementById('adminContent').classList.add('hidden');
 document.getElementById('adminPassword').value='';
 }
 
-// Signup
-document.getElementById('signupForm').addEventListener('submit',(e)=>{
+document.getElementById('signupForm').addEventListener('submit',e=>{
 e.preventDefault();
 alert('Welcome! Check your email for next steps.');
 document.getElementById('signupForm').reset();
 });
 
-// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 anchor.addEventListener('click',function(e){
 e.preventDefault();
@@ -647,10 +717,7 @@ if(target){target.scrollIntoView({behavior:'smooth',block:'start'})}
 });
 });
 
-// Load on page load
-loadEvents();
-loadTeam();
-updateContactDisplay();
+loadEvents();loadBlogs();loadResources();loadTeam();loadPastSpeakers();updateContactDisplay();
 </script>
 </body>
 </html>
